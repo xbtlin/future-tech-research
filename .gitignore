@@ -1,0 +1,16 @@
+.DS_Store
+**/.DS_Store
+*.log
+.env
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+
+# 一手访谈录音（不公开）
+*.m4a
+*.mp3
+*.wav
+
+# 爬虫登录态
+/tmp/*_state.json
