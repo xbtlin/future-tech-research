@@ -107,3 +107,25 @@
   - **不确定**：未上市公司真实留存与毛利均无披露，ARR 数字多为 run-rate 不等于 GAAP 收入
 
 **Sources** 已以内联 markdown 链接形式嵌入各条目；关键依据：METR TH1.1、Scale SWE-Bench Pro、Sierra τ-Bench、arXiv 2503.13657、TechCrunch Cognition/Sierra 融资报道、OpenAI MLE-bench、NxCode GPT-5.4 评测。
+
+---
+
+## 2026-Q3 更新（2026-08-14）
+
+> 详见 [Q3 更新报告](../../reports/2026-Q3-九大方向更新.md)。本次**不改星级**，因为本季的变化不是"能力变了"，而是"量具坏了"。
+
+**三条新事实，全部指向量具而非能力**：
+
+1. **METR 自曝量程上限**：[Frontier Risk Report](https://metr.org/blog/2026-05-19-frontier-risk-report/)（2026-05-19）脚注 *"The TH 1.1 suite can't reliably measure time horizons above 16 hours"* ；公开前沿 50% 视野约 12h，但**置信区间 [5h – 61h] 跨一个数量级**，80% 视野只有约 1.5h
+2. **Gaia2 官方榜停滞**：[Meta Gaia2-CLI 榜](https://huggingface.co/spaces/meta-agents-research-environments/leaderboard)在 4 月基线后只有一条提交（GPT-5.5 xhigh 56.4，2026-05-15），仍**低于** 2026-04-13 的 Opus 4.6（57.0）。全表最新日期即 05-15。注意：分数为厂商自报，非 Meta 复跑
+3. **OSWorld 被证明可刷**：Berkeley [BenchJack](https://arxiv.org/abs/2605.12673) 用 `wget` 把公开的 HuggingFace gold 文件下载到评测器检查的路径，让评测器拿 gold 比对 gold，零任务完成度拿到 **73%**
+
+**对第 5 节"3 年拐点概率 40%"的影响**：
+
+- 支持理由 1（METR 曲线外推到 900h）**失去量具支撑，暂停使用** ——不是被证伪，是没法测
+- 支持理由 3（SWE-Bench Pro 每半年 +10pp）**不可信** ——Pro 已被证明可零能力刷到 100%，且其公开榜三档 harness 设置混排、无 last-updated 时间戳
+- 支持理由 2（单位经济）不受影响
+
+**结论：40% 应当下调，但本季数据不足以定新值。** Q4 补齐企业侧数据（POC 转化率、agent 公司回退案例）后重估。
+
+**新增跟踪信号（替换原信号 1）**：MirrorCode（Epoch × METR，[arXiv 2606.30182](https://arxiv.org/abs/2606.30182)）的 doubling 曲线能否与 TH 1.1 对齐。若不能，本仓库应**放弃时间视野外推**这个分析工具。

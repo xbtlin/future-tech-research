@@ -83,3 +83,23 @@
 - [Lost in the Middle (arxiv)](https://arxiv.org/abs/2307.03172)
 - [LongBench v2](https://longbench2.github.io/)
 - [Epoch AI context windows](https://epoch.ai/data-insights/context-windows/)
+
+---
+
+## 2026-Q3 更新（2026-08-14）：**本轮零取证**
+
+> 详见 [Q3 更新报告](../../reports/2026-Q3-九大方向更新.md)第五节。
+
+本季两轮 deep-research 在这个维度上**没有任何一条结论通过三票对抗核查**。以下 Q2 基线数字**均未拿到刷新值**：
+
+- MRCR v2 @1M（Opus 4.6 76% / Gemini 3 Pro 26.3%）
+- LongBench v2（最强 50.1%）
+- BABILong
+- LoCoMo 类长程记忆任务
+- 混合架构（Mamba/Jamba）是否出现前沿级模型
+
+**必须记清楚：这是"未取证"，不是"无进展"。** 若下季度回看时把本条读成"长上下文停滞了"，会得出错误的趋势判断。
+
+**原因**：本轮两个工作流耗尽了会话全部 200 次网络搜索额度，第二轮验证阶段的核查者明确报告无法做第三方交叉验证，D 块（long-context / on-device）的点名 URL 未被触达。
+
+**Q4 优先级：第 1 位。** 下一轮应先定死 URL 清单（MRCR、LongBench v2、BABILong 官方榜）再启动检索，把额度花在验证而非发现上。

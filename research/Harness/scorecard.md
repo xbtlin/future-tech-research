@@ -84,3 +84,39 @@
 - [Bessemer: Shopify AI-first engineering](https://www.bvp.com/atlas/inside-shopifys-ai-first-engineering-playbook)
 - [Contrary Research: Cognition 业务分析](https://research.contrary.com/company/cognition)
 - [Cognizant × Cognition 企业合作 2026-01-28](https://news.cognizant.com/2026-01-28-Cognizant-and-Cognition-Partner-to-Scale-Autonomous-Software-Engineering-and-Deliver-Business-Value-Across-Enterprise-Operations)
+
+---
+
+## 2026-Q3 更新（2026-08-14）
+
+> 详见 [Q3 更新报告](../../reports/2026-Q3-九大方向更新.md)。
+
+### MCP 做了成立以来最大的破坏性改版
+
+[官方博文](https://blog.modelcontextprotocol.io/posts/2026-07-28/)（2026-07-28），新规范版本号即 `2026-07-28`：
+
+- **从"双向有状态"改为"无状态请求/响应"**：原文 *"MCP is transforming from a bidirectional stateful protocol into a request/response stateless protocol"* 。删除 `initialize`/`initialized` 握手与 `Mcp-Session-Id` 头，每个请求在 `_meta` 里自带协议版本、客户端身份与能力
+- 新增 `server/discover` RPC（**服务端 MUST 实现**）
+- 弃用 Roots / Sampling / Logging 三原语；HTTP+SSE 重新归类为 Deprecated；弃用 DCR 改用 CIMD
+- **首次确立"至少 12 个月"的弃用窗口政策**（有加速例外，最短 90 天）
+
+**生态规模（信号 1 更新）**：Tier 1 SDK **月下载近 5 亿次**（Q2 基线 9700 万，约 5 倍），TS 与 Python SDK **各自累计破 10 亿次**。但官方**未**给出 server 数量、registry 条目数——Q2 记的"10,000+ server"本季无更新。限定：包管理器下载量含 CI/镜像重复拉取，不等于活跃用户。
+
+**判断修正**：命题"MCP 成为 agent 界的 USB-C"**仍在轨**，但**新增一个风险变量**：破坏性改版 + 12 个月弃用窗口，可能让存量 server 生态分裂。规范文本只是意图声明，**不证明 SDK / Claude Code / Cursor 或任何 server 群体已实际迁移**。
+
+### 商业侧（信号 2 更新）
+
+| 事件 | 数字 | 日期 | 证据等级 |
+|---|---|---|---|
+| Cognition Series D | 融资 >$1B、估值 $26B、**run-rate $492M**、企业用量年内 >10× | 2026-05-27 | 一手（[官方](https://cognition.com/blog/series-d)） |
+| Sierra 收购 Takeoff | 3 人团队、"接近 8 位数 run rate"、条款未披露、原文用 "is acquiring" | 2026-07-23 | 一手（[官方](https://sierra.ai/blog/sierra-acquires-takeoff)） |
+| Cursor / Anysphere 被 SpaceX 以 $60B 收购 | — | 2026-06-16 | **仅二手，无一手证据** |
+| Cursor 与 Claude Code 新 ARR | **窗口内无披露** | — | Cursor 官网最新收入口径仍是 Bloomberg 2026-03-02 的 $2B |
+
+Cursor 侧一手可确认的只有：与名为 "SpaceXAI" 的实体**联合训练并联合发布** [Grok 4.5](https://cursor.com/blog/grok-4-5)（07-08，原文 "trained jointly with SpaceXAI"）与 [Grok 4.6](https://cursor.com/blog/grok-4-6)（08-12）。两篇博文无 acquisition/merger 字样、无价格、无交割状态，页脚仍是 "© 2026 Anysphere, Inc."。
+
+**口径纪律**：[TechCrunch 2026-05-22](https://techcrunch.com/2026/05/22/how-vcs-and-founders-use-inflated-arr-to-kingmake-ai-startups/) 记录了业内把 CARR（签约未交付）当 ARR 报的做法（有 VC 称见过 CARR 比 ARR 高 70% 的公司），以及把月收入直接年化。**本仓库此后一律把 Cognition 的 4.92 亿写作"run-rate（公司口径、未审计、Devin+Windsurf 合并）"，不写作 ARR。**
+
+### 信号 3（底模是否吃掉 harness）
+
+本季无新数据。但 MCP 的无状态化 + 弃用政策，是 harness 层向"操作系统原语"收敛的**弱正向**证据。
